@@ -1,0 +1,453 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+            background: rgba(34, 87, 51, 0.95); /* Dark Green */
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+            background: rgba(34, 87, 51, 0.98); /* Dark Green */
+    padding: 0.5rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-menu a:hover {
+    color: #a3d9a5; /* Lighter Green */
+}
+
+#cart-button {
+    background-color: #a3d9a5; /* Lighter Green */
+    color: #1e4620; /* Darker Green for text */
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+#cart-button:hover {
+     background-color: #b7e4b8; /* Even Lighter Green */
+     color: #1e4620; /* Darker Green for text */
+}
+
+#cart-count {
+    background-color: #c82333; /* Keep red for notifications */
+    color: white;
+    border-radius: 50%;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.8rem;
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+.mobile-menu {
+    display: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(34, 87, 51, 0.8), rgba(67, 137, 71, 0.8)), url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80'); /* Shades of Green */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #5cb85c, #4cae4c); /* Shades of Green */
+    color: #fff; /* White text for better contrast on green */
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(92, 184, 92, 0.3); /* Green shadow */
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(92, 184, 92, 0.4); /* Darker green shadow on hover */
+}
+
+/* Section Styles */
+.section {
+    padding: 5rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1e4620; /* Dark Green */
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(45deg, #5cb85c, #4cae4c); /* Shades of Green */
+}
+
+/* Products Section */
+.products {
+    background: #f8f9fa;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.product-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h3 {
+            color: #1e4620; /* Dark Green */
+    margin-bottom: 0.5rem;
+}
+.product-info p {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+            color: #1e4620; /* Dark Green */
+}
+.add-to-cart-btn {
+            background: #22543d; /* Darker Green */
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+.add-to-cart-btn:hover {
+            background: #38a169; /* Lighter Green on hover */
+}
+
+/* Modal (Cart & Checkout) Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+.modal-title {
+            color: #1e4620; /* Dark Green */
+    font-size: 1.8rem;
+}
+.modal-close {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #888;
+    border: none;
+    background: none;
+}
+
+/* Cart Item Styles */
+.cart-items-container {
+    margin-bottom: 1.5rem;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 1rem;
+}
+.cart-item-details {
+    flex-grow: 1;
+}
+.cart-item-details h4 {
+            color: #1e4620; /* Dark Green */
+}
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+.cart-item-quantity button {
+    background: #eee;
+    border: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.cart-item-quantity span {
+    margin: 0 1rem;
+}
+.cart-item-price {
+    font-weight: bold;
+}
+.cart-item-remove {
+    color: #ff4136;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+.cart-footer {
+    text-align: right;
+}
+.cart-total {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.cart-total strong {
+            color: #1e4620; /* Dark Green */
+}
+.checkout-btn {
+            background: linear-gradient(45deg, #5cb85c, #4cae4c); /* Shades of Green */
+            color: #fff; /* White text */
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Checkout Form Styles */
+.checkout-step { display: none; }
+.checkout-step.active { display: block; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; color: #555; font-weight: bold; }
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fdfdfd;
+    color: #333;
+    transition: all 0.3s ease;
+}
+        .form-group input:focus { outline: none; border-color: #22543d; box-shadow: 0 0 5px rgba(34, 84, 61, 0.2); } /* Dark Green focus */
+.checkout-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+.checkout-nav button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.prev-step-btn { background: #ccc; color: #333; }
+        .next-step-btn { background: #22543d; color: #fff; } /* Dark Green */
+.place-order-btn {
+             background: linear-gradient(45deg, #5cb85c, #4cae4c); /* Shades of Green */
+             color: #fff; /* White text */
+     width: 100%;
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+            background: #22543d; /* Dark Green */
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 3000;
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s;
+}
+
+/* Other sections, footer, etc. from original file */
+.about, .services, .contact, .footer { /* Keep original styles */ }
+.about { background: #f8f9fa; }
+.about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.about-text { font-size: 1.1rem; line-height: 1.8; }
+.about-image { position: relative; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.about-image img { width: 100%; height: 400px; object-fit: cover; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+.service-card { background: #fff; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .service-icon { font-size: 3rem; color: #22543d; margin-bottom: 1rem; } /* Dark Green */
+        .service-card h3 { color: #22543d; margin-bottom: 1rem; font-size: 1.3rem; } /* Dark Green */
+        .contact { background: linear-gradient(135deg, #22543d, #38a169); color: #fff; } /* Shades of Green */
+.contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .footer { background: #1e4620; color: #fff; padding: 3rem 0 1rem; } /* Darkest Green */
+/* Add more original styles here if needed to avoid breaking layout */
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .mobile-menu { display: block; }
+    .hero h1 { font-size: 2.5rem; }
+    .about-content, .contact-content { grid-template-columns: 1fr; }
+    .modal-content { width: 95%; padding: 1.5rem; }
+    .cart-item { flex-direction: column; align-items: flex-start; }
+}
