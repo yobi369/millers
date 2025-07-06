@@ -7,10 +7,13 @@ const apiRoutes = require('./routes/api');
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => {
+        console.log('Connected to MongoDB');
+    })
+    .catch(err => {
+        console.error('MongoDB connection error:', err);
+    });
 
 app.use(cors());
 app.use(express.json());
